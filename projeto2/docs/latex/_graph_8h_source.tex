@@ -1,0 +1,330 @@
+\hypertarget{_graph_8h_source}{}\doxysection{Graph.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DA\_P2\_GRAPH\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DA\_P2\_GRAPH\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{10 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}};}
+\DoxyCodeLine{11 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_vertex}{Vertex}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{/************************* Vertex **************************/}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_vertex}{Vertex}} \{}
+\DoxyCodeLine{17     T info; \textcolor{comment}{// contents}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} cap;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} visited;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} dist;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *path = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} earliestStart;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} degree;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     vector<Edge<T>> adj;}
+\DoxyCodeLine{28     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_vertex}{Vertex}}(T in);}
+\DoxyCodeLine{29     T getInfo() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_ada9a2fb6952f110c1a87d3947f29626e}{addAdj}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *dest, \textcolor{keywordtype}{int} capac, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap);}
+\DoxyCodeLine{33     vector<Edge<T>> getAdj() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} setCap(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} setDist(\textcolor{keywordtype}{int} d);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} setVisited(\textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setPath(\mbox{\hyperlink{class_vertex}{Vertex<int>}} * v);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} setES(\textcolor{keywordtype}{int} es);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} setDegree(\textcolor{keywordtype}{int} degree);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} getCap() \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} getDist() \textcolor{keyword}{const};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} getVisited() \textcolor{keyword}{const};}
+\DoxyCodeLine{45     \mbox{\hyperlink{class_vertex}{Vertex}} *getPath() \textcolor{keyword}{const};}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} getES() \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} getDegree() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{51 \mbox{\hyperlink{class_vertex}{Vertex<T>::Vertex}}(T in): info(in), dist(0), cap(0), visited(false) \{\}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{54 T \mbox{\hyperlink{class_vertex}{Vertex<T>::getInfo}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} this-\/>info;}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{59 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex_ada9a2fb6952f110c1a87d3947f29626e}{Vertex<T>::addAdj}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *d, \textcolor{keywordtype}{int} capac, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap) \{}
+\DoxyCodeLine{60     adj.push\_back(\mbox{\hyperlink{class_edge}{Edge<T>}}(\textcolor{keyword}{this}, d, capac, dura, resCap));}
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{64 vector<Edge<T>> \mbox{\hyperlink{class_vertex}{Vertex<T>::getAdj}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} adj;}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{69 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setCap}}(\textcolor{keywordtype}{int} c)\{}
+\DoxyCodeLine{70     cap = c;}
+\DoxyCodeLine{71 \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{74 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setDist}}(\textcolor{keywordtype}{int} d) \{}
+\DoxyCodeLine{75     dist = d;}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setVisited}}(\textcolor{keywordtype}{bool} b) \{}
+\DoxyCodeLine{80     visited = b;}
+\DoxyCodeLine{81 \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{84 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setPath}}(\mbox{\hyperlink{class_vertex}{Vertex<int>}} *v) \{}
+\DoxyCodeLine{85     path = v;}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setES}}(\textcolor{keywordtype}{int} es)\{}
+\DoxyCodeLine{90     this-\/>earliestStart = es;}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_vertex}{Vertex<T>::setDegree}}(\textcolor{keywordtype}{int} degree)\{}
+\DoxyCodeLine{95     this-\/>degree = degree;}
+\DoxyCodeLine{96 \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{99 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex}{Vertex<T>::getCap}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} this-\/>cap;}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{104 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex}{Vertex<T>::getDist}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{105     \textcolor{keywordflow}{return} dist;}
+\DoxyCodeLine{106 \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{109 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_vertex}{Vertex<T>::getVisited}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} visited;}
+\DoxyCodeLine{111 \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{114 \mbox{\hyperlink{class_vertex}{Vertex<T>}} *\mbox{\hyperlink{class_vertex}{Vertex<T>::getPath}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{115     \textcolor{keywordflow}{return} this-\/>path;}
+\DoxyCodeLine{116 \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{119 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex}{Vertex<T>::getES}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} this-\/>earliestStart;}
+\DoxyCodeLine{121 \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{124 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_vertex}{Vertex<T>::getDegree}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{125     \textcolor{keywordflow}{return} this-\/>degree;}
+\DoxyCodeLine{126 \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{comment}{/************************* Edge **************************/}}
+\DoxyCodeLine{129 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{130 \textcolor{keyword}{class }\mbox{\hyperlink{class_edge}{Edge}} \{}
+\DoxyCodeLine{131     \mbox{\hyperlink{class_vertex}{Vertex<T>}} * orig;      \textcolor{comment}{// origin vertex}}
+\DoxyCodeLine{132     \mbox{\hyperlink{class_vertex}{Vertex<T>}} * dest;      \textcolor{comment}{// destination vertex}}
+\DoxyCodeLine{133     \textcolor{keywordtype}{int} capacidade;         \textcolor{comment}{// edge weight}}
+\DoxyCodeLine{134     \textcolor{keywordtype}{int} duracao;}
+\DoxyCodeLine{135     \textcolor{keywordtype}{int} flux;}
+\DoxyCodeLine{136     \textcolor{keywordtype}{int} residCap;}
+\DoxyCodeLine{137 \textcolor{keyword}{public}:}
+\DoxyCodeLine{138     \mbox{\hyperlink{class_edge}{Edge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *o, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *d, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap);}
+\DoxyCodeLine{139     \textcolor{keywordtype}{int} getCapacidade() \textcolor{keyword}{const};}
+\DoxyCodeLine{140     \textcolor{keywordtype}{int} getDuracao() \textcolor{keyword}{const};}
+\DoxyCodeLine{141     \textcolor{keywordtype}{int} getFlux() \textcolor{keyword}{const};}
+\DoxyCodeLine{142     \mbox{\hyperlink{class_vertex}{Vertex<T>}} * getOrig() \textcolor{keyword}{const};}
+\DoxyCodeLine{143     \mbox{\hyperlink{class_vertex}{Vertex<T>}} * getDest() \textcolor{keyword}{const};}
+\DoxyCodeLine{144     \textcolor{keywordtype}{int} getResidCap() \textcolor{keyword}{const};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{void} setFlux(\textcolor{keywordtype}{int} f);}
+\DoxyCodeLine{147     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}}<T>;}
+\DoxyCodeLine{148     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_vertex}{Vertex}}<T>;}
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{152 \mbox{\hyperlink{class_edge}{Edge<T>::Edge}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *o, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *d, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap): orig(o), dest(d), capacidade(c), duracao(dura), flux(0), residCap(resCap)\{\}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{155 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_edge}{Edge<T>::getCapacidade}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{156     \textcolor{keywordflow}{return} capacidade;}
+\DoxyCodeLine{157 \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{160 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_edge}{Edge<T>::getDuracao}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{161     \textcolor{keywordflow}{return} duracao;}
+\DoxyCodeLine{162 \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{165 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_edge}{Edge<T>::getFlux}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} flux;}
+\DoxyCodeLine{167 \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{170 \mbox{\hyperlink{class_vertex}{Vertex<T>}} * \mbox{\hyperlink{class_edge}{Edge<T>::getOrig}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{171     \textcolor{keywordflow}{return} orig;}
+\DoxyCodeLine{172 \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{175 \mbox{\hyperlink{class_vertex}{Vertex<T>}} * \mbox{\hyperlink{class_edge}{Edge<T>::getDest}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{176     \textcolor{keywordflow}{return} dest;}
+\DoxyCodeLine{177 \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{180 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_edge}{Edge<T>::getResidCap}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{181     \textcolor{keywordflow}{return} residCap;}
+\DoxyCodeLine{182 \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{185 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_edge}{Edge<T>::setFlux}}(\textcolor{keywordtype}{int} f) \{}
+\DoxyCodeLine{186     flux = f;}
+\DoxyCodeLine{187 \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{comment}{/************************* Graph **************************/}}
+\DoxyCodeLine{191 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{192 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
+\DoxyCodeLine{193     vector<Vertex<T> *> vertexSet;    \textcolor{comment}{// vertex set}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \textcolor{keywordtype}{int} **W = \textcolor{keyword}{nullptr};   \textcolor{comment}{// dist}}
+\DoxyCodeLine{196     \textcolor{keywordtype}{int} **P = \textcolor{keyword}{nullptr};   \textcolor{comment}{// path}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keywordtype}{bool} relax(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *w, \textcolor{keywordtype}{double} weight);}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200 \textcolor{keyword}{public}:}
+\DoxyCodeLine{201     \mbox{\hyperlink{class_graph}{Graph}}();}
+\DoxyCodeLine{202     \mbox{\hyperlink{class_graph}{\string~Graph}}();}
+\DoxyCodeLine{203     vector<Vertex<T> *> getVertexSet() \textcolor{keyword}{const};}
+\DoxyCodeLine{204     \textcolor{keywordtype}{bool} addVertex(\textcolor{keyword}{const} T \&in);}
+\DoxyCodeLine{205     \textcolor{keywordtype}{bool} addEdge(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{int} capac, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap);}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \mbox{\hyperlink{class_vertex}{Vertex<T>}} *findVertex(\textcolor{keyword}{const} T \&in) \textcolor{keyword}{const};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     vector<T> getPath(\textcolor{keyword}{const} T \&origin, \textcolor{keyword}{const} T \&dest) \textcolor{keyword}{const};}
+\DoxyCodeLine{210     \mbox{\hyperlink{class_vertex}{Vertex<T>}} * initSingleSource(\textcolor{keyword}{const} T\& origem);}
+\DoxyCodeLine{211     \textcolor{keywordtype}{void} unweightedShortestPath(\textcolor{keyword}{const} T\& origem);}
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{215 \mbox{\hyperlink{class_graph}{Graph<T>::Graph}}()= \textcolor{keywordflow}{default};}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217 \textcolor{comment}{/*** destructor ***/}}
+\DoxyCodeLine{218 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{219 \textcolor{keywordtype}{void} deleteMatrix(T **m, \textcolor{keywordtype}{int} n) \{}
+\DoxyCodeLine{220     \textcolor{keywordflow}{if} (m != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++)}
+\DoxyCodeLine{222             \textcolor{keywordflow}{if} (m[i] != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{223                 \textcolor{keyword}{delete} [] m[i];}
+\DoxyCodeLine{224         \textcolor{keyword}{delete} [] m;}
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226 \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{229 \mbox{\hyperlink{class_graph}{Graph<T>::\string~Graph}}() \{}
+\DoxyCodeLine{230     deleteMatrix(W, vertexSet.size());}
+\DoxyCodeLine{231     deleteMatrix(P, vertexSet.size());}
+\DoxyCodeLine{232 \}}
+\DoxyCodeLine{233 \textcolor{comment}{/*** destructor ***/}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{236 vector<Vertex<T> *> \mbox{\hyperlink{class_graph}{Graph<T>::getVertexSet}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{237     \textcolor{keywordflow}{return} vertexSet;}
+\DoxyCodeLine{238 \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{241 \mbox{\hyperlink{class_vertex}{Vertex<T>}} * \mbox{\hyperlink{class_graph}{Graph<T>::findVertex}}(\textcolor{keyword}{const} T \&in)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{242     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} v : vertexSet)}
+\DoxyCodeLine{243         \textcolor{keywordflow}{if} (v-\/>getInfo() == in)}
+\DoxyCodeLine{244             \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{245     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{246 \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{249 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph}{Graph<T>::addVertex}}(\textcolor{keyword}{const} T \&in) \{}
+\DoxyCodeLine{250     \textcolor{keywordflow}{if} (findVertex(in) != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{252     vertexSet.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_vertex}{Vertex<T>}}(in));}
+\DoxyCodeLine{253     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{254 \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{257 vector<T> \mbox{\hyperlink{class_graph}{Graph<T>::getPath}}(\textcolor{keyword}{const} T \&origin, \textcolor{keyword}{const} T \&dest)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{258     vector<T> res;}
+\DoxyCodeLine{259     \mbox{\hyperlink{class_vertex}{Vertex<T>}} pred = *findVertex(dest); \textcolor{comment}{//pred = dest}}
+\DoxyCodeLine{260     \textcolor{keywordflow}{if}(!pred.getVisited()) \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{261     res.push\_back(pred.getInfo());}
+\DoxyCodeLine{262     \textcolor{keywordflow}{while}(pred.getInfo() != origin)\{}
+\DoxyCodeLine{263         pred = *(pred.getPath());}
+\DoxyCodeLine{264         res.push\_back(pred.getInfo());}
+\DoxyCodeLine{265     \}}
+\DoxyCodeLine{266     \textcolor{comment}{//reverse vector}}
+\DoxyCodeLine{267     reverse(res.begin(), res.end());}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{270 \}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{273 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph}{Graph<T>::addEdge}}(\textcolor{keyword}{const} T \&sourc, \textcolor{keyword}{const} T \&dest, \textcolor{keywordtype}{int} capac, \textcolor{keywordtype}{int} dura, \textcolor{keywordtype}{int} resCap) \{}
+\DoxyCodeLine{274     \textcolor{keyword}{auto} v1 = findVertex(sourc);}
+\DoxyCodeLine{275     \textcolor{keyword}{auto} v2 = findVertex(dest);}
+\DoxyCodeLine{276     \textcolor{keywordflow}{if} (v1 == \textcolor{keyword}{nullptr} || v2 == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{277         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{278     v1-\/>addAdj(v2, capac, dura, resCap);}
+\DoxyCodeLine{279     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{280 \}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{287 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{288 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph}{Graph<T>::relax}}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} *v, \mbox{\hyperlink{class_vertex}{Vertex<T>}} *w, \textcolor{keywordtype}{double} weight) \{}
+\DoxyCodeLine{289     \textcolor{keywordflow}{if} (v-\/>getDist() + weight < w-\/>getDist()) \{}
+\DoxyCodeLine{290         w-\/>setDist(v-\/>getDist() + weight);}
+\DoxyCodeLine{291         w-\/>setPath(v);}
+\DoxyCodeLine{292         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{293     \}}
+\DoxyCodeLine{294     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{296 \}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{299 \mbox{\hyperlink{class_vertex}{Vertex<T>}} * \mbox{\hyperlink{class_graph}{Graph<T>::initSingleSource}}(\textcolor{keyword}{const} T \&origem) \{}
+\DoxyCodeLine{300     \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_vertex}{Vertex<T>}} * vert : vertexSet) \{}
+\DoxyCodeLine{301         vert-\/>setDist(INT32\_MAX);}
+\DoxyCodeLine{302         vert-\/>setPath(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{303         vert-\/>setVisited(\textcolor{keyword}{false});}
+\DoxyCodeLine{304     \}}
+\DoxyCodeLine{305     \textcolor{keyword}{auto} s = findVertex(origem);}
+\DoxyCodeLine{306     s-\/>setDist(0);}
+\DoxyCodeLine{307     s-\/>setVisited(\textcolor{keyword}{true});}
+\DoxyCodeLine{308     s-\/>setCap(INT32\_MAX);}
+\DoxyCodeLine{309     \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{310 \}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{313 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph}{Graph<T>::unweightedShortestPath}}(\textcolor{keyword}{const} T\& origem) \{}
+\DoxyCodeLine{314     \textcolor{keyword}{auto} first = initSingleSource(origem);}
+\DoxyCodeLine{315     queue<Vertex<T>* > q;}
+\DoxyCodeLine{316     q.push(first);}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318     \textcolor{keywordflow}{while}(!q.empty()) \{}
+\DoxyCodeLine{319         \mbox{\hyperlink{class_vertex}{Vertex<int>}} * v = q.front();}
+\DoxyCodeLine{320         q.pop();}
+\DoxyCodeLine{321         \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_edge}{Edge<T>}} e: v-\/>getAdj()) \{}
+\DoxyCodeLine{322             \textcolor{keywordflow}{if} (relax(v, e.getDest(), 1)) \{}
+\DoxyCodeLine{323                 q.push(e.getDest());}
+\DoxyCodeLine{324                 e.getDest()-\/>setVisited(\textcolor{keyword}{true});}
+\DoxyCodeLine{325             \}}
+\DoxyCodeLine{326         \}}
+\DoxyCodeLine{327     \}}
+\DoxyCodeLine{328 \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DA\_P2\_GRAPH\_H}}
+
+\end{DoxyCode}

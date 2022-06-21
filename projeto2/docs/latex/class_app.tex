@@ -1,0 +1,84 @@
+\hypertarget{class_app}{}\doxysection{App Class Reference}
+\label{class_app}\index{App@{App}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_app_acb8cbf3e285b91d0170ffe87df5989c5}\label{class_app_acb8cbf3e285b91d0170ffe87df5989c5}} 
+{\bfseries App} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_app}{App}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_app_a1811db2ad56237df0628d9242ee153d3}\label{class_app_a1811db2ad56237df0628d9242ee153d3}} 
+void {\bfseries print\+Scenario\+Options} ()
+\begin{DoxyCompactList}\small\item\em print the 2 scenarios that can happen \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_app_a19d94829bef22e1c7c6e6a6251542173}\label{class_app_a19d94829bef22e1c7c6e6a6251542173}} 
+void {\bfseries print\+Tests\+\_\+\+Group\+Together} ()
+\begin{DoxyCompactList}\small\item\em present the options that can be tested, when group stay together \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_app_a3d5b750a3b80a1dfe4de713b011d6a20}\label{class_app_a3d5b750a3b80a1dfe4de713b011d6a20}} 
+void {\bfseries print\+Tests\+\_\+\+Group\+Split} ()
+\begin{DoxyCompactList}\small\item\em present the options that can be testes, when the group split \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_app_ae2ec68ddca16f63b774933681409d71d}\label{class_app_ae2ec68ddca16f63b774933681409d71d}} 
+void {\bfseries deal\+With\+Options} (char scenario)
+\begin{DoxyCompactList}\small\item\em deal with options that were chosen by the user \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_app_af3b0aa702fadf4dfb155a2470c80489d}{choose\+\_\+inputs}} ()
+\begin{DoxyCompactList}\small\item\em asks user what input file he wants to use \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_app_a186131c1be2bb5457d1bc02a3e3301f9}{call\+Functions\+\_\+1}} (char option, string input)
+\begin{DoxyCompactList}\small\item\em calls the functions from scenario 1, depending on option \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_app_a6c8cd9eef69f4f22f4727ff1d9ff3a45}{call\+Functions\+\_\+2}} (char option, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g, \mbox{\hyperlink{class_scenario}{Scenario}} scena)
+\begin{DoxyCompactList}\small\item\em calls the functions from scenario 1, depending on option \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_a186131c1be2bb5457d1bc02a3e3301f9}\label{class_app_a186131c1be2bb5457d1bc02a3e3301f9}} 
+\index{App@{App}!callFunctions\_1@{callFunctions\_1}}
+\index{callFunctions\_1@{callFunctions\_1}!App@{App}}
+\doxysubsubsection{\texorpdfstring{callFunctions\_1()}{callFunctions\_1()}}
+{\footnotesize\ttfamily void App\+::call\+Functions\+\_\+1 (\begin{DoxyParamCaption}\item[{char}]{option,  }\item[{string}]{input }\end{DoxyParamCaption})}
+
+
+
+calls the functions from scenario 1, depending on option 
+
+
+\begin{DoxyParams}{Parameters}
+{\em option} & \\
+\hline
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_app_a6c8cd9eef69f4f22f4727ff1d9ff3a45}\label{class_app_a6c8cd9eef69f4f22f4727ff1d9ff3a45}} 
+\index{App@{App}!callFunctions\_2@{callFunctions\_2}}
+\index{callFunctions\_2@{callFunctions\_2}!App@{App}}
+\doxysubsubsection{\texorpdfstring{callFunctions\_2()}{callFunctions\_2()}}
+{\footnotesize\ttfamily void App\+::call\+Functions\+\_\+2 (\begin{DoxyParamCaption}\item[{char}]{option,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g,  }\item[{\mbox{\hyperlink{class_scenario}{Scenario}}}]{scena }\end{DoxyParamCaption})}
+
+
+
+calls the functions from scenario 1, depending on option 
+
+
+\begin{DoxyParams}{Parameters}
+{\em option} & \\
+\hline
+{\em g} & \\
+\hline
+{\em scena} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_app_af3b0aa702fadf4dfb155a2470c80489d}\label{class_app_af3b0aa702fadf4dfb155a2470c80489d}} 
+\index{App@{App}!choose\_inputs@{choose\_inputs}}
+\index{choose\_inputs@{choose\_inputs}!App@{App}}
+\doxysubsubsection{\texorpdfstring{choose\_inputs()}{choose\_inputs()}}
+{\footnotesize\ttfamily string App\+::choose\+\_\+inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+asks user what input file he wants to use 
+
+\begin{DoxyReturn}{Returns}
+file name 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App.\+h\item 
+App.\+cpp\end{DoxyCompactItemize}

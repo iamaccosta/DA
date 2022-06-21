@@ -1,0 +1,276 @@
+\hypertarget{class_scenario}{}\doxysection{Scenario Class Reference}
+\label{class_scenario}\index{Scenario@{Scenario}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scenario_a8f44b8ba72efd6be41240cd069e15d41}{Scenario}} (const string \&input, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\item 
+void \mbox{\hyperlink{class_scenario_a661d47cc9d43d9d18a53f5507e233594}{print\+Graph}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ g)
+\item 
+void \mbox{\hyperlink{class_scenario_ae9631ed934f5fc37483bee7cc9d0c61d}{max\+Dimensao\+Grp}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ g)
+\begin{DoxyCompactList}\small\item\em Determines the max dimension of a group and indicates the path the group took to go from orig to dest. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ \mbox{\hyperlink{class_scenario_a00bc993189f30d5a57024935ba8f5758}{rede\+\_\+residual}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em Maximizar a dimensão do grupo e minimizar os transbordos (mostrando para as duas, as soluções ótimas) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_a9cb4324b4094402ff4ab08bd76b264a4}{ford\+\_\+fulkerson\+\_\+algorithm}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$rede, vector$<$ int $>$ $\ast$path, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, int $\ast$res\+Cap, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em receives a path and checks the minimum flow possible to go from orig to dest, updates the flow on the graph and recreates the residual graph aswell as the path (checks if till has another path) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_a20fdc9b7501cd491dcf387c54968e4a4}{determinate\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, int dimensao, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em determinates the path for a group with dimension \char`\"{}dimensao\char`\"{} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_a95549beba60d750cdd07a838b25b06f8}{increase\+Grp\+Size}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, int incre, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em given a graph with flow, increases the flow by an increment \char`\"{}incre\char`\"{} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_a720608e8c4c142ec950a5a5fb8055794}{max\+Dim\+\_\+determinate\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em determinates the max flow from origin to destination \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_a8b8d0e1df2da2ceec3368d0a6de1136d}{time\+Of\+Reunion}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\begin{DoxyCompactList}\small\item\em prints the longest path in terms of duration \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_scenario_a62f3b732b880ff566d6ab09cccb7dc8a}{shortest\+Path\+Aux}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\item 
+void \mbox{\hyperlink{class_scenario_a802056b8af7186f7e93f680c7412cf30}{max\+Time}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$orig, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$g)
+\item 
+int \mbox{\hyperlink{class_scenario_a14fa2f3a6064208180a41e87fdd6a53e}{print\+Path}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest)
+\begin{DoxyCompactList}\small\item\em prints the path of the flow of the graph \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scenario_ade2ad0433ca9a2ecb8c260ebb5767c0d}{rest\+Of\+The\+Path}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$v, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$dest, int $\ast$path\+Flux)
+\begin{DoxyCompactList}\small\item\em recursive function that helps printing the path \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scenario_a8f44b8ba72efd6be41240cd069e15d41}\label{class_scenario_a8f44b8ba72efd6be41240cd069e15d41}} 
+\index{Scenario@{Scenario}!Scenario@{Scenario}}
+\index{Scenario@{Scenario}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{Scenario()}{Scenario()}}
+{\footnotesize\ttfamily Scenario\+::\+Scenario (\begin{DoxyParamCaption}\item[{const string \&}]{input,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em g} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scenario_a20fdc9b7501cd491dcf387c54968e4a4}\label{class_scenario_a20fdc9b7501cd491dcf387c54968e4a4}} 
+\index{Scenario@{Scenario}!determinatePath@{determinatePath}}
+\index{determinatePath@{determinatePath}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{determinatePath()}{determinatePath()}}
+{\footnotesize\ttfamily void Scenario\+::determinate\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{int}]{dimensao,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+determinates the path for a group with dimension \char`\"{}dimensao\char`\"{} 
+
+2.\+1
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & vertex of origin \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+{\em dimensao} & dimension \\
+\hline
+{\em g} & graph to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a9cb4324b4094402ff4ab08bd76b264a4}\label{class_scenario_a9cb4324b4094402ff4ab08bd76b264a4}} 
+\index{Scenario@{Scenario}!ford\_fulkerson\_algorithm@{ford\_fulkerson\_algorithm}}
+\index{ford\_fulkerson\_algorithm@{ford\_fulkerson\_algorithm}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{ford\_fulkerson\_algorithm()}{ford\_fulkerson\_algorithm()}}
+{\footnotesize\ttfamily void Scenario\+::ford\+\_\+fulkerson\+\_\+algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{rede,  }\item[{vector$<$ int $>$ $\ast$}]{path,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{int $\ast$}]{res\+Cap,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+receives a path and checks the minimum flow possible to go from orig to dest, updates the flow on the graph and recreates the residual graph aswell as the path (checks if till has another path) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rede} & reference to the residual graph \\
+\hline
+{\em path} & reference to the path \\
+\hline
+{\em orig} & vertex of origin \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+{\em res\+Cap} & difference between capacity and flow \\
+\hline
+{\em g} & graph to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a95549beba60d750cdd07a838b25b06f8}\label{class_scenario_a95549beba60d750cdd07a838b25b06f8}} 
+\index{Scenario@{Scenario}!increaseGrpSize@{increaseGrpSize}}
+\index{increaseGrpSize@{increaseGrpSize}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{increaseGrpSize()}{increaseGrpSize()}}
+{\footnotesize\ttfamily void Scenario\+::increase\+Grp\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{int}]{incre,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+given a graph with flow, increases the flow by an increment \char`\"{}incre\char`\"{} 
+
+2.\+2
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & vertex of origin \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+{\em incre} & increment \\
+\hline
+{\em g} & graph to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a720608e8c4c142ec950a5a5fb8055794}\label{class_scenario_a720608e8c4c142ec950a5a5fb8055794}} 
+\index{Scenario@{Scenario}!maxDim\_determinatePath@{maxDim\_determinatePath}}
+\index{maxDim\_determinatePath@{maxDim\_determinatePath}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{maxDim\_determinatePath()}{maxDim\_determinatePath()}}
+{\footnotesize\ttfamily void Scenario\+::max\+Dim\+\_\+determinate\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+determinates the max flow from origin to destination 
+
+2.\+3
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & vertex of origin \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+{\em g} & graph to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_ae9631ed934f5fc37483bee7cc9d0c61d}\label{class_scenario_ae9631ed934f5fc37483bee7cc9d0c61d}} 
+\index{Scenario@{Scenario}!maxDimensaoGrp@{maxDimensaoGrp}}
+\index{maxDimensaoGrp@{maxDimensaoGrp}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{maxDimensaoGrp()}{maxDimensaoGrp()}}
+{\footnotesize\ttfamily void Scenario\+::max\+Dimensao\+Grp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$}]{g }\end{DoxyParamCaption})}
+
+
+
+Determines the max dimension of a group and indicates the path the group took to go from orig to dest. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & vertex of origin \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+{\em g} & graph to be modified \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a802056b8af7186f7e93f680c7412cf30}\label{class_scenario_a802056b8af7186f7e93f680c7412cf30}} 
+\index{Scenario@{Scenario}!maxTime@{maxTime}}
+\index{maxTime@{maxTime}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{maxTime()}{maxTime()}}
+{\footnotesize\ttfamily void Scenario\+::max\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+2.\+5 \mbox{\Hypertarget{class_scenario_a661d47cc9d43d9d18a53f5507e233594}\label{class_scenario_a661d47cc9d43d9d18a53f5507e233594}} 
+\index{Scenario@{Scenario}!printGraph@{printGraph}}
+\index{printGraph@{printGraph}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{printGraph()}{printGraph()}}
+{\footnotesize\ttfamily void Scenario\+::print\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$}]{g }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a14fa2f3a6064208180a41e87fdd6a53e}\label{class_scenario_a14fa2f3a6064208180a41e87fdd6a53e}} 
+\index{Scenario@{Scenario}!printPath@{printPath}}
+\index{printPath@{printPath}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{printPath()}{printPath()}}
+{\footnotesize\ttfamily int Scenario\+::print\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest }\end{DoxyParamCaption})}
+
+
+
+prints the path of the flow of the graph 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & graph \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+longest duration 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scenario_a00bc993189f30d5a57024935ba8f5758}\label{class_scenario_a00bc993189f30d5a57024935ba8f5758}} 
+\index{Scenario@{Scenario}!rede\_residual@{rede\_residual}}
+\index{rede\_residual@{rede\_residual}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{rede\_residual()}{rede\_residual()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ Scenario\+::rede\+\_\+residual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Maximizar a dimensão do grupo e minimizar os transbordos (mostrando para as duas, as soluções ótimas) 
+
+1.\+2
+
+creates a residual graph that holds the edges (paths/vehicles) that can take people still
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+residual graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scenario_ade2ad0433ca9a2ecb8c260ebb5767c0d}\label{class_scenario_ade2ad0433ca9a2ecb8c260ebb5767c0d}} 
+\index{Scenario@{Scenario}!restOfThePath@{restOfThePath}}
+\index{restOfThePath@{restOfThePath}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{restOfThePath()}{restOfThePath()}}
+{\footnotesize\ttfamily void Scenario\+::rest\+Of\+The\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{v,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{int $\ast$}]{path\+Flux }\end{DoxyParamCaption})}
+
+
+
+recursive function that helps printing the path 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & current vertex of path \\
+\hline
+{\em dest} & vertex of destination \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scenario_a62f3b732b880ff566d6ab09cccb7dc8a}\label{class_scenario_a62f3b732b880ff566d6ab09cccb7dc8a}} 
+\index{Scenario@{Scenario}!shortestPathAux@{shortestPathAux}}
+\index{shortestPathAux@{shortestPathAux}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{shortestPathAux()}{shortestPathAux()}}
+{\footnotesize\ttfamily int Scenario\+::shortest\+Path\+Aux (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scenario_a8b8d0e1df2da2ceec3368d0a6de1136d}\label{class_scenario_a8b8d0e1df2da2ceec3368d0a6de1136d}} 
+\index{Scenario@{Scenario}!timeOfReunion@{timeOfReunion}}
+\index{timeOfReunion@{timeOfReunion}!Scenario@{Scenario}}
+\doxysubsubsection{\texorpdfstring{timeOfReunion()}{timeOfReunion()}}
+{\footnotesize\ttfamily void Scenario\+::time\+Of\+Reunion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ int $>$ $\ast$}]{dest,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ int $>$ $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+prints the longest path in terms of duration 
+
+2.\+4
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & vertex of destination \\
+\hline
+{\em g} & graph \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Scenarios.\+h\item 
+Scenarios.\+cpp\end{DoxyCompactItemize}
