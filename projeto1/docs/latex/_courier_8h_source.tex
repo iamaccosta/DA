@@ -1,0 +1,43 @@
+\hypertarget{_courier_8h_source}{}\doxysection{Courier.\+h}
+\label{_courier_8h_source}\index{DA\_Project1/src/Courier.h@{DA\_Project1/src/Courier.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DA\_P1\_COURIER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DA\_P1\_COURIER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_courier}{Courier}} \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_courier_a496629bfdf8482e816833e699b2f4d37}{Courier}}(\textcolor{keywordtype}{int} volMax, \textcolor{keywordtype}{int} weightMax, \textcolor{keywordtype}{int} cost);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{comment}{//Getters}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} getVolMax() \textcolor{keyword}{const};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} getWeightMax() \textcolor{keyword}{const};}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} getCost() \textcolor{keyword}{const};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} getCurrentVol() \textcolor{keyword}{const};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} getCurrentWeight() \textcolor{keyword}{const};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{//Setters}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} setVolMax(\textcolor{keywordtype}{int} vol);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} setWeightMax(\textcolor{keywordtype}{int} weight);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} setCost(\textcolor{keywordtype}{int} cost);}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_courier_a1e68d4d3df2dd8bb10c23a53f02b6633}{setCurrentVol}}(\textcolor{keywordtype}{int} vol);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_courier_aab417618537e5a06db31a5bc39adf915}{setCurrentWeight}}(\textcolor{keywordtype}{int} weight);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} printInfo();}
+\DoxyCodeLine{45 \textcolor{keyword}{private}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{string} licensePlate;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} volMax, weightMax, cost, currentVol, currentWeight;}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{59 \textcolor{keywordtype}{bool} sortCouriersByMax(\textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e1, \textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e2);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{71 \textcolor{keywordtype}{bool} sortCouriersByProfit(\textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e1, \textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e2);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{82 \textcolor{keywordtype}{bool} sortCouriersByCost(\textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e1, \textcolor{keyword}{const} \mbox{\hyperlink{class_courier}{Courier}} \&e2);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DA\_P1\_COURIER\_H}}
+
+\end{DoxyCode}
